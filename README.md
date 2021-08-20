@@ -8,7 +8,7 @@ In order to run taxi demand regression, you need to have at least **Java 1.8**, 
 To run Taxi Demand Regression, you need to place NYC taxi data in Hadoop HDFS, let's suppose that you have created an input directory in Hadoop HDFS as following `hadoop fs -mkdir /input_dir/` then you will place input files by running something like `hadoop fs -put <file-path>/<file-name> /input_dir/`, now you have input files in the HDFS ready, you need to run ST-Hadoop indexer to index the input files by time and locations, here is an example of how to run indexer `hadoop jar <path to sthadoop jar file>/sthadoop-2.4.1-SNAPSHOT-uber.jar stmanager /input_dir/* /output_dir/ time:day shape:edu.umn.cs.sthadoop.core.STpointsTaxi sindex:rtree -overwrite`, for more information of how to use indexer read [ST-Hadoop indexer](http://st-hadoop.cs.umn.edu/getting-started/spatio-temporal-index). Now you have input file ready for quering.
 
 # Running
-After having the input data prepared and indexed in the HDFS input directory, you can:
+After having the input data prepared and indexed in the HDFS, you can:
 1. run query the data that the model will be trained on by running ST-Hadoop Range Query by using commands like `hadoop jar <path to sthadoop jar file>/sthadoop-2.4.1-SNAPSHOT-uber.jar strangequery /<HDFS indexed data directory>/ /<query output directory> rect:<main_latitude>,<min_longitude>,<max_latitude>,<max_longitude> interval:<start_time>,<end_time> shape:edu.umn.cs.sthadoop.core.STpointsTaxi time:day -overwrite`, for more information on how to use this query read [ST-Hadoop Range Query](http://st-hadoop.cs.umn.edu/getting-started/spatio-temporal-range-query). 
 2. then you can run the MapReduce Taxi Demand Regression by running comands like 
 ```
