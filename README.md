@@ -10,7 +10,7 @@ To run Taxi Demand Regression, you need to place NYC taxi data in Hadoop HDFS, l
 # Run
 After having the input data prepared and indexed in the HDFS, you can:
 1. First run query the data that the model will be trained on by running ST-Hadoop Range Query by using a command like `hadoop jar <path to sthadoop jar file>/sthadoop-2.4.1-SNAPSHOT-uber.jar strangequery /<HDFS indexed data directory>/ /<query output directory> rect:<min_latitude>,<min_longitude>,<max_latitude>,<max_longitude> interval:<start_time>,<end_time> shape:edu.umn.cs.sthadoop.core.STpointsTaxi time:day -overwrite`, for more information on how to use this query read [ST-Hadoop Range Query](http://st-hadoop.cs.umn.edu/getting-started/spatio-temporal-range-query). 
-2. Then you can run the MapReduce Taxi Demand Regression by running comands like 
+2. Then you can run the MapReduce Taxi Demand Regression by running a command like 
 ```
 hadoop  jar /<path to hadoop-streaming jar file>/hadoop-streaming-2.9.x.jar \
 	-file Mapper.py -mapper Mapper.py \
