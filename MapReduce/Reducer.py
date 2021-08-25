@@ -175,8 +175,8 @@ def main(separator='\t'):
     print(model_evaluation('RandomForest',X_Test=X_test, y_pred=RFRegr_y_pred, y_true=y_test))
     print(model_evaluation('XGB',X_Test=X_test, y_pred=GBRegr_y_pred, y_true=y_test))
     measure_time('printing results') # printing time for debugging only
-    
-
+    # or you can just print the entire list of prdection to get each location/time intraval demand
+    # GBRegr_y_pred.to_string()
     
 if __name__ == "__main__":
     main()
