@@ -170,7 +170,7 @@ def main(separator='\t'):
     
     
     
-    # evaluation
+    # evaluation (pring here will give the output of reducer)
     print(model_evaluation('Linear Regression',X_Test=X_test, y_pred=LReg_y_pred, y_true=y_test))
     print(model_evaluation('RandomForest',X_Test=X_test, y_pred=RFRegr_y_pred, y_true=y_test))
     print(model_evaluation('XGB',X_Test=X_test, y_pred=GBRegr_y_pred, y_true=y_test))
